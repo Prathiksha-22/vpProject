@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angularApp';
+  title = 'Prathiksha Angular App';
+  links = [
+    { path: '/home', icon: 'home', title: 'Home'},
+    { path: '/login', icon: 'person', title: 'Login'},
+    { path: '/signup', icon: 'account_box', title: 'Signup'},
+    { path: '/task', icon: 'assignment', title: 'Task'},
+
+  ];
+
+  constructor() {}
 }
+
