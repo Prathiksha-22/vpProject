@@ -9,9 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material.module';
-import { TaskService } from './task/task.service';
 import { HttpClientModule } from '@angular/common/http';
-import { TaskComponent } from './task/task.component';
 
 
 
@@ -19,9 +17,7 @@ import { TaskComponent } from './task/task.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    TaskComponent
-    
+    HomeComponent, 
   ],
   
   imports: [
@@ -35,7 +31,7 @@ import { TaskComponent } from './task/task.component';
    
   ],
   providers: [
-    TaskService,
+   
   ],
   bootstrap: [AppComponent]
 })
