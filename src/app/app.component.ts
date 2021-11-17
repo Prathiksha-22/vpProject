@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -10,12 +11,15 @@ export class AppComponent {
   
   links = [
     { path: '/home', icon: 'home', title: 'Home'},
-    { path: '/login', icon: 'person', title: 'Login'},
-    { path: '/signup', icon: 'account_box', title: 'Signup'},
+    { path: '/signup', icon: 'account_box', title: 'Registration Form'},
     { path: '/task', icon: 'assignment', title: 'Task'}
 
   ];
 
-  constructor() {}
+  constructor(private router: Router) {}
+
+  logout() {
+    this.router.navigateByUrl('/login')
+  }
 }
 

@@ -10,27 +10,6 @@ export class TaskService {
 
   private model = 'taskData';
 
-  private taskData = [
-    {
-      "id": 1,
-      "title": 'Angular Fundamentals',
-      "description": 'Learn the fundamentals of Angular ', 
-    },
-
-    {
-      "id": 2,
-      "title": 'JavaScript The Really REALLY HARD PARTS',
-      "description": 'Worship Will Sentance',
-    },
-
-    {
-      "id": 3,
-      "title": 'Angular Service',
-      "description": 'Create the service in the app asap',
-    },
-
-  ];
-
   constructor(private http: HttpClient) { }
 
   all() {
@@ -38,7 +17,7 @@ export class TaskService {
   }
 
   find(taskId: any) {
-
+    return this.http.get(this.getUrlById(taskId));
   }
 
   create(task: any) {
@@ -46,14 +25,18 @@ export class TaskService {
   }
 
   update(task: any) {
-    console.log('UDDATE Task', task);
+    return this.http.put(this.getUrlById(task.id), task);
   }
 
   delete(taskId: any) {
-    console.log('DLETE Task', taskId);
+    return this.http.delete(this.getUrlById(taskId));
   }
 
   private getUrl() {
     return`${BASE_URL}${this.model}`;
+  }
+
+  private getUrlById(id: any) {
+    return `${this.getUrl()}/${id}`;
   }
 }

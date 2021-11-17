@@ -12,6 +12,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { TaskComponent } from './task/task.component';
+import { TaskDetailsComponent } from './task/task-details/task-details.component';
+import { TaskListComponent } from './task/task-list/task-list.component';
 
 
 @NgModule({
@@ -19,6 +21,8 @@ import { TaskComponent } from './task/task.component';
     AppComponent,
     HomeComponent,
     TaskComponent,
+    TaskDetailsComponent,
+    TaskListComponent,
   ],
   
   imports: [

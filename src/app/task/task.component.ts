@@ -40,9 +40,15 @@ export class TaskComponent implements OnInit {
       .subscribe(taskData => this.taskData = taskData);
   }
 
+  refreshTaskData() {
+    this.resetCurrentTask();
+    this.loadTaskData();
+  }
+
   saveTask(task:any) {
     if(task.id) {
-      this.taskService.update(task);    
+      this.taskService.update(task)
+        .subscribe(result => this.refreshTaskData());    
     } else {
       this.taskService.create(task)
         .subscribe(result => this.loadTaskData());
@@ -50,7 +56,8 @@ export class TaskComponent implements OnInit {
   }
 
   deleteTask(taskId: any) {
-    this.taskService.delete(taskId);
+    this.taskService.delete(taskId)
+      .subscribe(result => this.refreshTaskData());
   }
 
   cancel() {
