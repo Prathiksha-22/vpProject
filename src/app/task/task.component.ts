@@ -1,3 +1,4 @@
+import { TaskService } from './../shared/services/task.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,32 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./task.component.scss']
 })
 export class TaskComponent implements OnInit {
+  [x: string]: any;
 
   currentTask = null as any;
 
-  taskData = [
-    {
-      "id": 1,
-      "title": 'Angular Fundamentals',
-      "description": 'Learn the fundamentals of Angular ', 
-    },
+  taskData = null as any;
 
-    {
-      "id": 2,
-      "title": 'JavaScript The Really REALLY HARD PARTS',
-      "description": 'Worship Will Sentance',
-    },
-
-    {
-      "id": 3,
-      "title": 'Angular Service',
-      "description": 'Connect the API in the project',
-    },
-
-  ];
+  constructor(private taskService: TaskService) {}
 
   ngOnInit(): void {
     this.resetCurrentTask();
+    this.taskData = this.taskService.all();
   }
 
   resetCurrentTask() {
@@ -39,8 +25,6 @@ export class TaskComponent implements OnInit {
       id: null,
       title: '',
       description: '',
-      percentComplete: 0,
-      favorite: false
     };
 
     this.currentTask = emptyTask;
@@ -49,19 +33,22 @@ export class TaskComponent implements OnInit {
  
   selectTask(task:any) {
     this.currentTask = task;
-    console.log('Selected!', task)
   }
 
-  saveTask() {
-    console.log('SAVE SOURCE!');
+  saveTask(task:any) {
+    if(this.currentTask.id) {
+      this.taskService.update(this.task);    
+    } else {
+      this.taskService.create(this.task);
+    }
   }
 
   deleteTask(taskId: any) {
-    console.log('Task DELETED!', taskId);
+    this.taskService.delete(taskId);
   }
 
   cancel() {
-   console.log('canceled',)
+   this.resetCurrentTask();
   }
 }
 

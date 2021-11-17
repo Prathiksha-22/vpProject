@@ -1,3 +1,4 @@
+import { TaskService } from './shared/services/task.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -18,7 +19,6 @@ import { TaskComponent } from './task/task.component';
     AppComponent,
     HomeComponent,
     TaskComponent,
-  
   ],
   
   imports: [
@@ -32,7 +32,7 @@ import { TaskComponent } from './task/task.component';
    
   ],
   providers: [
-   
+   TaskService
   ],
   bootstrap: [AppComponent]
 })

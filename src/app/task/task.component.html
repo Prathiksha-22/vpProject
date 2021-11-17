@@ -33,7 +33,7 @@
           </mat-card-title>
         </mat-card-header>
 
-        <form  (submit)="saveTask()">
+        <form  (submit)="saveTask(currentTask)">
           <mat-card-content>
             <mat-form-field>
               <input matInput placeholder="Title"
