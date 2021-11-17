@@ -1,0 +1,57 @@
+<div class="task-containers">
+    <div class="task-list">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>
+            Task List
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-list>
+            <mat-list-item *ngFor="let task of taskData"
+            (click)="selectTask(task)">
+              <h3 matLine>{{task.title}}</h3>
+              <p matLine>{{task.description}}</p>
+              
+              <button mat-icon-button color="warn"
+              (click)="deleteTask(task.id);$event.stopImmediatePropagation()">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </mat-list-item>
+          </mat-list>
+  
+        </mat-card-content>
+      </mat-card>
+    </div>
+  
+    <div class="task-details">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>
+            <span *ngIf="currentTask.id; else noSelection">  {{currentTask.title }} </span>
+            <ng-template #noSelection>Select Task</ng-template>
+          </mat-card-title>
+        </mat-card-header>
+
+        <form  (submit)="saveTask()">
+          <mat-card-content>
+            <mat-form-field>
+              <input matInput placeholder="Title"
+                type="text" name="title" required
+                [(ngModel)]="currentTask.title">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Description"
+                type="text" name="description"
+                [(ngModel)]="currentTask.description">
+            </mat-form-field>
+          </mat-card-content>
+          <mat-card-actions>
+            <button [disabled]="" type="submit" mat-button color="primary">Submit</button>
+            <button type="button" mat-button (click)="cancel()">Cancel</button>
+          </mat-card-actions>
+        </form> 
+      </mat-card>
+    </div>
+  </div>
+  

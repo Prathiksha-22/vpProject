@@ -10,24 +10,25 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material.module';
 import { HttpClientModule } from '@angular/common/http';
-
-
+import { TaskComponent } from './task/task.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent, 
+    HomeComponent,
+    TaskComponent,
+  
   ],
   
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
-    FormsModule,
+    BrowserAnimationsModule,   
     MaterialModule, 
     ReactiveFormsModule,
     HttpClientModule,
+    FormsModule
    
   ],
   providers: [
