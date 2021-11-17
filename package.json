@@ -6,8 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
-    "server": "json-server server/db.json",
-    "server:all": "concurrently \"npm run server \"ng serve\""
+    "mock:server": "json-server --watch db.json"
   },
   "private": true,
   "dependencies": {

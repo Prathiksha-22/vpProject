@@ -17,7 +17,7 @@ export class TaskComponent implements OnInit {
 
   ngOnInit(): void {
     this.resetCurrentTask();
-    this.taskData = this.taskService.all();
+    this.loadTaskData();
   }
 
   resetCurrentTask() {
@@ -35,11 +35,17 @@ export class TaskComponent implements OnInit {
     this.currentTask = task;
   }
 
+  loadTaskData() {
+    this.taskService.all()
+      .subscribe(taskData => this.taskData = taskData);
+  }
+
   saveTask(task:any) {
-    if(this.currentTask.id) {
-      this.taskService.update(this.task);    
+    if(task.id) {
+      this.taskService.update(task);    
     } else {
-      this.taskService.create(this.task);
+      this.taskService.create(task)
+        .subscribe(result => this.loadTaskData());
     }
   }
 

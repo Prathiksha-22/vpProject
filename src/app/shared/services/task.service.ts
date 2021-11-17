@@ -1,9 +1,14 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+const BASE_URL ='http://localhost:3000/'
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
+
+  private model = 'taskData';
 
   private taskData = [
     {
@@ -26,10 +31,10 @@ export class TaskService {
 
   ];
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   all() {
-    return this.taskData;
+    return this.http.get(this.getUrl());
   }
 
   find(taskId: any) {
@@ -37,7 +42,7 @@ export class TaskService {
   }
 
   create(task: any) {
-    console.log('CREATE Task', task);
+     return this.http.post(this.getUrl(), task);
   }
 
   update(task: any) {
@@ -46,5 +51,9 @@ export class TaskService {
 
   delete(taskId: any) {
     console.log('DLETE Task', taskId);
+  }
+
+  private getUrl() {
+    return`${BASE_URL}${this.model}`;
   }
 }
