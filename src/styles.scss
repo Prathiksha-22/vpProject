@@ -115,7 +115,15 @@ html {
       width: 400px;
     }
   }
+  .reactiveForm-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 64px);
   
+    mat-card {
+      width: 400px;}
+  }
   .dashboard-card {
     position: absolute !important;
     top: 15px;

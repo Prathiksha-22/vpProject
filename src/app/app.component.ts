@@ -11,8 +11,8 @@ export class AppComponent {
   
   links = [
     { path: '/home', icon: 'home', title: 'Home'},
-    { path: '/signup', icon: 'account_box', title: 'Registration Form'},
-    { path: '/task', icon: 'assignment', title: 'Task'}
+    { path: '/task', icon: 'assignment', title: 'Task'},
+    { path: '/reactive-form', icon: 'description', title: 'Reactive Form'}
 
   ];
 

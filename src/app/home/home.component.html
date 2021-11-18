@@ -1,16 +1,31 @@
-<mat-card>
-    <mat-card-header>
-        <mat-card-title>
-            {{title}}
-        </mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-        <mat-list>
-            <mat-list-item *ngFor="let lesson of lessonData"
-            (click)="selectLesson(lesson)">
-                <h3>{{lesson.name}}</h3>
-            </mat-list-item>
-        </mat-list>
-    </mat-card-content>
-</mat-card>
+<div class="lesson-containers">
+    <div class="lesson-list">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>
+                    {{title}}
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <mat-list>
+                    <mat-list-item *ngFor="let lesson of lessonData"
+                    (click)="selectLesson(lesson)">
+                        <h3>{{lesson.name}}</h3>
+                    </mat-list-item>
+                </mat-list>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+    <div class="lesson-detail">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>
+                    <span ></span>
+                </mat-card-title>
+            </mat-card-header>
+        </mat-card>
+
+    </div>
+</div>
 
